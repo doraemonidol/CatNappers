@@ -3,9 +3,7 @@ using Spine;
 using Spine.Unity;
 using UnityEngine;
 
-namespace Game
-{
-    public class AxieFigure : MonoBehaviour
+public class AxieFigure : MonoBehaviour
     {
         private SkeletonAnimation skeletonAnimation;
 
@@ -75,4 +73,3 @@ namespace Game
             }
         }
     }
-}

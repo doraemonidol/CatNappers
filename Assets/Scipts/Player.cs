@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public CharacterController2D controller;
-    private Game.AxieFigure figure;
+    private AxieFigure figure;
 
     public float runSpeed = 40f;
 
@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        figure = gameObject.GetComponentInChildren<Game.AxieFigure>();
+        figure = gameObject.GetComponentInChildren<AxieFigure>();
     }
 
     private void Update()
