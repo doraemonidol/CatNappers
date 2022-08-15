@@ -5,14 +5,13 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-namespace Game
-{
-    public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour
     {
         [SerializeField] GameObject _startMsgGO;
         [SerializeField] Button _mixBtn;
         [SerializeField] InputField _idInput;
         [SerializeField] AxieFigure _birdFigure;
+        [SerializeField] string[] figureList = { "6679798" , "10814754" , "5815197" , "11356360" };
 
         bool _isPlaying = false;
         bool _isFetchingGenes = false;
@@ -91,4 +90,3 @@ namespace Game
             _isFetchingGenes = false;
         }
     }
-}
