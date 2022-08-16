@@ -37,6 +37,7 @@ public class OrbColliding : MonoBehaviour
             if (this.GetComponent<Player>().type == 2)
             {
                 GunPivot.SetActive(true);
+                this.GetComponent<SpringJoint2D>().enabled = true;
             }
             if (this.GetComponent<Player>().type == 3)
             {

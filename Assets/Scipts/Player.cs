@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     {
         GunPivot.SetActive(false);
         this.GetComponent<FireballShooter>().enabled = false;
+        this.GetComponent<SpringJoint2D>().enabled = false;
     }
 
     private void Update()
