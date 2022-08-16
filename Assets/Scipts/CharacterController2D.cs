@@ -22,8 +22,6 @@ public class CharacterController2D : MonoBehaviour
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
 	}
-
-
 	private void FixedUpdate()
 	{
 		m_Grounded = false;

@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
         [SerializeField] Button _mixBtn;
         [SerializeField] InputField _idInput;
         [SerializeField] AxieFigure _birdFigure;
+        [SerializeField] AxieFigure _birdFigure2;
         [SerializeField] public string[] figureList = { "6679798" , "10814754" , "5815197" , "11356360" };
 
         bool _isPlaying = false;
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour
         // 978176 0x800000000000010001c0402104100000000100002801400a0001000008004002000100001800c00400010000100080040001000008004002000100002801400a
         //_idInput.text = axieId;
             _birdFigure.SetGenes(axieId[0], genes[0]);
+            _birdFigure2.SetGenes(axieId[1], genes[1]);
         }
 
         // Update is called once per frame

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player1 : MonoBehaviour
 {
     public CharacterController2D controller;
     private AxieFigure figure;
@@ -33,17 +33,17 @@ public class Player : MonoBehaviour
     private void Update()
     {
 
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-        if (Input.GetKey(KeyCode.UpArrow) && Input.GetButtonDown("Jump"))
+        horizontalMove = Input.GetAxisRaw("Horizontal1") * runSpeed;
+        if (Input.GetKey(KeyCode.W) && Input.GetButtonDown("Jump"))
         {
             jump = true;
         }
 
-        if (Input.GetKey(KeyCode.DownArrow) && Input.GetButtonDown("Crouch"))
+        if (Input.GetKey(KeyCode.S) && Input.GetButtonDown("Crouch"))
         {
             crouch = true;
         }
-        else if (Input.GetKey(KeyCode.DownArrow) && Input.GetButtonUp("Crouch"))
+        else if (Input.GetKey(KeyCode.S) && Input.GetButtonDown("Crouch"))
         {
             crouch = false;
         }
