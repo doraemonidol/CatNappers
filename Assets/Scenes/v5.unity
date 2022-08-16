@@ -220,7 +220,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dfa8ca1e49de794da6f408378ecb77c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thingToFollow: {fileID: 1419218980}
+  targets:
+  - {fileID: 1254169209}
+  - {fileID: 1419218981}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &149879565
 GameObject:
   m_ObjectHideFlags: 0
