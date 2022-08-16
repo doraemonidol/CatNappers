@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OrbManager : MonoBehaviour
+public class NewBehaviourScript : MonoBehaviour
 {
-    [SerializeField] public int type;
     // Start is called before the first frame update
     void Start()
     {

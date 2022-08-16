@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
         [SerializeField] Button _mixBtn;
         [SerializeField] InputField _idInput;
         [SerializeField] AxieFigure _birdFigure;
-        [SerializeField] string[] figureList = { "6679798" , "10814754" , "5815197" , "11356360" };
+        [SerializeField] public string[] figureList = { "6679798" , "10814754" , "5815197" , "11356360" };
 
         bool _isPlaying = false;
         bool _isFetchingGenes = false;
@@ -26,17 +26,19 @@ public class GameManager : MonoBehaviour
             _mixBtn.onClick.RemoveListener(OnMixButtonClicked);
         }
 
-        // Start is called before the first frame update
-        void Start()
-        {
-            Time.timeScale = 0f;
+    // Start is called before the first frame update
+    void Start()
+    {
+        Time.timeScale = 0f;
 
-            Mixer.Init();
+        Mixer.Init();
 
-            string axieId = PlayerPrefs.GetString("selectingId", "2727");
-            string genes = PlayerPrefs.GetString("selectingGenes", "0x2000000000000300008100e08308000000010010088081040001000010a043020000009008004106000100100860c40200010000084081060001001410a04406");
-            _idInput.text = axieId;
-            _birdFigure.SetGenes(axieId, genes);
+        string[] axieId = { "641753", "978176" }; 
+            string[] genes = { "0x800000000000010001c0402084080000000100002801400a0001000008608002000100000800820a000100001000800400010000080040020001000028004002", "0x800000000000010001c0402104100000000100002801400a0001000008004002000100001800c00400010000100080040001000008004002000100002801400a" };
+        // 641753 0x800000000000010001c0402084080000000100002801400a0001000008608002000100000800820a000100001000800400010000080040020001000028004002
+        // 978176 0x800000000000010001c0402104100000000100002801400a0001000008004002000100001800c00400010000100080040001000008004002000100002801400a
+        //_idInput.text = axieId;
+            _birdFigure.SetGenes(axieId[0], genes[0]);
         }
 
         // Update is called once per frame
@@ -85,6 +87,7 @@ public class GameManager : MonoBehaviour
                     PlayerPrefs.SetString("selectingGenes", genesStr);
                     _idInput.text = axieId;
                     _birdFigure.SetGenes(axieId, genesStr);
+                Debug.Log(genesStr);
                 }
             }
             _isFetchingGenes = false;

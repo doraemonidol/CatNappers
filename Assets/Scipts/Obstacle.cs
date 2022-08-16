@@ -2,8 +2,23 @@
 
 public class Obstacle : MonoBehaviour
     {
-        void Update()
-        {
-            transform.position += ((Vector3.left * 2) * Time.deltaTime);
-        }
-    }
+	public int health = 0;
+
+	public GameObject deathEffect;
+
+	public void TakeDamage(int damage)
+	{
+		health -= damage;
+
+		if (health <= 0)
+		{
+			Die();
+		}
+	}
+
+	void Die()
+	{
+		Instantiate(deathEffect, transform.position, Quaternion.identity);
+		Destroy(gameObject);
+	}
+}

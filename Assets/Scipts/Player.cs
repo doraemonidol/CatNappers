@@ -7,6 +7,10 @@ public class Player : MonoBehaviour
     public CharacterController2D controller;
     private AxieFigure figure;
 
+    [SerializeField] public int type = -1; // water - metal - wood - fire
+    [SerializeField] GameObject GunPivot;
+    [SerializeField] GameObject FireBallPivot;
+
     public float runSpeed = 40f;
 
     float horizontalMove = 0f;
@@ -16,6 +20,13 @@ public class Player : MonoBehaviour
     private void Start()
     {
         figure = gameObject.GetComponentInChildren<AxieFigure>();
+        resetSkills();
+    }
+
+    public void resetSkills()
+    {
+        GunPivot.SetActive(false);
+        this.GetComponent<FireballShooter>().enabled = false;
     }
 
     private void Update()
@@ -49,6 +60,6 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D coll)
     {
         // Restart
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

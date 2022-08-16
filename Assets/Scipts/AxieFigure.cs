@@ -9,21 +9,21 @@ public class AxieFigure : MonoBehaviour
 
         [SerializeField] private bool _flipX = false;
         public bool flipX
+    {
+        get
         {
-            get
+            return _flipX;
+        }
+        set
+        {
+            _flipX = value;
+            if (skeletonAnimation != null)
             {
-                return _flipX;
-            }
-            set
-            {
-                _flipX = value;
-                if (skeletonAnimation != null)
-                {
-                    skeletonAnimation.skeleton.ScaleX = (_flipX ? -1 : 1) * Mathf.Abs(skeletonAnimation.skeleton.ScaleX);
-                }
+                skeletonAnimation.skeleton.ScaleX = (_flipX ? -1 : 1) * Mathf.Abs(skeletonAnimation.skeleton.ScaleX);
+                //gunPivot.localScale += new Vector3(gunPivot.localScale.x * (-2) * (_flipX ? -1 : 1), 0, 0);
             }
         }
-
+    }
         private void Awake()
         {
             skeletonAnimation = gameObject.GetComponent<SkeletonAnimation>();
@@ -33,11 +33,11 @@ public class AxieFigure : MonoBehaviour
         {
             if (string.IsNullOrEmpty(genes)) return;
 
-            if (skeletonAnimation != null && skeletonAnimation.state != null)
-            {
-                skeletonAnimation.state.End -= SpineEndHandler;
-            }
-            Mixer.SpawnSkeletonAnimation(skeletonAnimation, id, genes);
+        if (skeletonAnimation != null && skeletonAnimation.state != null)
+        {
+            skeletonAnimation.state.End -= SpineEndHandler;
+        }
+        Mixer.SpawnSkeletonAnimation(skeletonAnimation, id, genes);
 
             skeletonAnimation.transform.localPosition = new Vector3(0f, -0.32f, 0f);
             skeletonAnimation.transform.SetParent(transform, false);
@@ -58,6 +58,11 @@ public class AxieFigure : MonoBehaviour
         }
 
         public void DoJumpAnim()
+        {
+            skeletonAnimation.timeScale = 1f;
+            skeletonAnimation.AnimationState.SetAnimation(0, "action/move-forward", false);
+        }
+        public void DoBuffAnim()
         {
             skeletonAnimation.timeScale = 1f;
             skeletonAnimation.AnimationState.SetAnimation(0, "action/move-forward", false);
